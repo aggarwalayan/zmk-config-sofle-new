@@ -14,7 +14,8 @@
 #define MACOS_DEFAULT 1
 #define RAISE 2
 #define MACOS_RAISE 3
-#define FN 4
+#define GAMING 4
+#define FN 5
 
 
 /{
@@ -138,19 +139,39 @@
         };
 
 
+        gaming_layer {
+            display-name = "GAMING";
+// ------------------------------------------------------------------------------------------------------------
+// |  ESC  |  1  |  2   |  3   |  4   |  5   |                   |  6   |  7    |  8    |  9   |   0   | DELETE |
+// |  TAB  |  Q  |  W   |  E   |  R   |  T   |                   |  Y   |  U    |  I    |  O   |   P   | BKSPC  |
+// | CTRL  |  A  |  S   |  D   |  F   |  G   |                   |  H   |  J    |  K    |  L   |   ;   |   '    |
+// | SHIFT |  Z  |  X   |  C   |  V   |  B   |  MUTE  |  |       |  N   |  M    |  ,    |  .   |   /   | SHIFT  |
+//               |FN    | SHIFT| SPACE| ALT  |  GUI   |  | ENTER | SPACE| RAISE |CTRL_PGUP| CTRL_PGDN |
+            bindings = <
+
+&kp ESC   &kp N1 &kp N2    &kp N3    &kp N4    &kp N5                           &kp N6 &kp N7    &kp N8    &kp N9   &kp N0   &kp DELETE
+&kp TAB   &kp Q  &kp W     &kp E     &kp R     &kp T                            &kp Y  &kp U     &kp I     &kp O    &kp P    &kp BSPC
+&kp LCTRL &kp A  &kp S     &kp D     &kp F     &kp G                            &kp H  &kp J     &kp K     &kp L    &kp SEMI &kp SQT
+&kp LSHIFT     &kp Z  &kp X   &kp C   &kp V     &kp B      &kp C_MUTE &none      &kp N  &kp M     &kp COMMA &kp DOT  &kp FSLH &kp RSHIFT
+                 &mo FN &kp LSHIFT &kp SPACE &kp LALT    &kp LGUI   &lt RAISE ENTER  &kp SPACE  &mo RAISE &kp LC(PG_UP)  &kp LC(PG_DN)
+            >;
+
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp C_AC_ZOOM_IN C_AC_ZOOM_OUT>;
+        };
+
         fn_layer {
             display-name = "FN";
             bindings = <&mba>, <&ubuntu>;
 // TODO: Some binds are waiting for shifted keycode support.
 // ------------------------------------------------------------------------------------------------------------
 // |       |  F1 |  F2 |  F3  |  F4  |  F5  |                   |  F6  |  F7   |  F8   |  F9  |  F10  |  F11  |
-// |       |  p1 |  p2 |  p3  |  p4  |  p5  |                   |      |       |       |      |       |  F12  |
+// |       |  p1 |  p2 |  p3  |  p4  |  p5  |                   |GAMING|       |       |      |       |  F12  |
 // | btclr |  bt0|  bt1|  bt2 |  bt3 |  bt4 |                   |      |       |       |      |       |       |
 // |       |     |     |      |      |      |        |  |       |      |       |       |      |       |       |
 //               |     |      |      |      |        |  |       |      |       |       |      |
             bindings = <
 &none    &kp F1    &kp F2    &kp F3      &kp F4    &kp F5                                           &kp F6    &kp F7   &kp F8    &kp F9    &kp F10   &kp F11
-&none &mba    &ubuntu1    &ubuntu2      &ubuntu3    &ubuntu4                                           &none  &none  &none  &none  &none  &kp F12
+&none &mba    &ubuntu1    &ubuntu2      &ubuntu3    &ubuntu4                                           &to GAMING  &none  &none  &none  &none  &kp F12
 &bt BT_CLR   &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                    &none  &none  &none  &none  &none  &none
 &none  &none  &none  &none  &none  &none      &none &none       &none  &none  &none  &none  &none  &none
                     &trans    &none      &to DEFAULT    &to MACOS_DEFAULT     &none &none       &none     &none   &none    &none
