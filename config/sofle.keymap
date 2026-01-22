@@ -146,14 +146,14 @@
 // |  TAB  |  Q  |  W   |  E   |  R   |  T   |                   |  Y   |  U    |  I    |  O   |   P   | BKSPC  |
 // | CTRL  |  A  |  S   |  D   |  F   |  G   |                   |  H   |  J    |  K    |  L   |   ;   |   '    |
 // | SHIFT |  Z  |  X   |  C   |  V   |  B   |  MUTE  |  |       |  N   |  M    |  ,    |  .   |   /   | SHIFT  |
-//               |FN    | SHIFT| SPACE| ALT  |  GUI   |  | ENTER | SPACE| RAISE |CTRL_PGUP| CTRL_PGDN |
+//               |FN    | N    | SPACE| ALT  |  GUI   |  | ENTER | SPACE| RAISE |CTRL_PGUP| CTRL_PGDN |
             bindings = <
 
 &kp ESC   &kp N1 &kp N2    &kp N3    &kp N4    &kp N5                           &kp N6 &kp N7    &kp N8    &kp N9   &kp N0   &kp DELETE
 &kp TAB   &kp Q  &kp W     &kp E     &kp R     &kp T                            &kp Y  &kp U     &kp I     &kp O    &kp P    &kp BSPC
 &kp LCTRL &kp A  &kp S     &kp D     &kp F     &kp G                            &kp H  &kp J     &kp K     &kp L    &kp SEMI &kp SQT
 &kp LSHIFT     &kp Z  &kp X   &kp C   &kp V     &kp B      &kp C_MUTE &none      &kp N  &kp M     &kp COMMA &kp DOT  &kp FSLH &kp RSHIFT
-                 &mo FN &kp LSHIFT &kp SPACE &kp LALT    &kp LGUI   &lt RAISE ENTER  &kp SPACE  &mo RAISE &kp LC(PG_UP)  &kp LC(PG_DN)
+                 &mo FN &kp N &kp SPACE &kp LALT    &kp LGUI   &lt RAISE ENTER  &kp SPACE  &mo RAISE &kp LC(PG_UP)  &kp LC(PG_DN)
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp C_AC_ZOOM_IN C_AC_ZOOM_OUT>;
