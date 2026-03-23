@@ -14,7 +14,7 @@
 keymap {
 compatible = "zmk,keymap";
 
-    base_layer
+    base_layer{
         display-name = "BASE";
 
         bindings = <
@@ -29,7 +29,7 @@ compatible = "zmk,keymap";
 
         sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp C_AC_ZOOM_IN C_AC_ZOOM_OUT>;
 
-    ;
+    };
 
     raise_layer {
         display-name = "RAISE";
